@@ -257,7 +257,6 @@
   inline-size: 130px;
   block-size: 38px;
   border: solid 2px var(--main-color);
-  border: 2px solid var(--main-color);
   overflow: hidden;
   background-color: var(--background-color); /* Фон кнопки белый */
   cursor: pointer;
@@ -430,7 +429,7 @@ li:nth-of-type(8) .card__article-picture {
 /*************** пиксельные корректировки - подгонка под макет в pixel perfect ****************/
 @media (width >= 1440px) {
   .header {
-    margin-block-end: 97;
+    margin-block-end: 97px;
   }
   .card__article {
     margin-block-end: 49px;
