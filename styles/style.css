@@ -19,14 +19,15 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
 
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: var(--font-main-size);
   font-variation-settings: 'wght' (var(--font-main-weight));
   color: var(--main-color);
 
   background-image: 
-    repeating-linear-gradient(to left, #d3d3d3, transparent 2px),
-    repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(to left, #d3d3d3, transparent 4px),
+    repeating-linear-gradient(to bottom, #d3d3d3, transparent 4px),
     linear-gradient(to bottom, #e7e7e7 0% 0.01%, #1a1a1a);
   background-size: cover;
   background-attachment: fixed;
@@ -45,6 +46,7 @@
   margin-block-start: 100px;
   margin-block-end: clamp(98px, 100.67px - 0.18vw, 100px);
   background-color: var(--background-color);
+  border: solid 2px var(--main-color);
 }
 
 .header__title {
@@ -54,7 +56,7 @@
   align-items: center;
   gap: 20px;
   margin: auto;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent), 'Courier New', Courier, 'Lucida Sans Typewriter', monospace;
   font-weight: var(--font-weight-normal);
   font-smooth: never;                /* Стандарт будущего (пока слабая поддержка) */
   text-transform: uppercase;
@@ -89,8 +91,9 @@
 .card__article-title {
   margin: 4px 10px;
   color: var(--main-color);
-  font-family: var(--font-family-main);
-  font-weight: var(--font-main-card-title);
+  font-family: var(--font-family-main), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-variation-settings: 'wght' (var(--font-main-weight));
   font-size: var(--font-main-size);
 }
 
@@ -115,7 +118,7 @@
   right: 25px;
   opacity: 0.5;
   color: var(--main-color);
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent), 'Courier New', Courier, 'Lucida Sans Typewriter', monospace;
   font-size: 14px;
   font-smooth: never;
   text-transform: uppercase;
@@ -147,7 +150,8 @@
   gap: 25px;
   margin: 25px;
   color: var(--main-color);
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: var(--font-main-weight);
   font-size: var(--font-main-size);
   line-height: var(--font-main-line-height);
@@ -157,7 +161,7 @@
 .button {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent), 'Courier New', Courier, 'Lucida Sans Typewriter', monospace;
   font-size: 14px;
   line-height: 0.9;
   background-color: var(--background-color);
@@ -250,16 +254,8 @@
 
 /********************* Кнопка Like Изначально + Hover ***********************************/
 .card__like-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   inline-size: 130px;
   block-size: 38px;
-  border: solid 2px var(--main-color);
-  overflow: hidden;
-  background-color: var(--background-color); /* Фон кнопки белый */
-  cursor: pointer;
 }
 
 .button__text {
@@ -269,7 +265,18 @@
   mix-blend-mode: difference;
 }
 
-.card__like-button::before {
+.button:not(.card__icon-button) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px var(--main-color);
+  overflow: hidden;
+  background-color: var(--background-color); /* Фон кнопки белый */
+  cursor: pointer;
+}
+
+.button:not(.card__icon-button)::before {
   content: "";
   position: absolute;
   top: 0;
@@ -280,10 +287,10 @@
   background-color: var(--main-color);
   transition: transform 0.5s ease-in-out;
   
-  transform: translate(-100%, -20%);
+  transform: translateX(-100%);
 }
 
-.card__like-button:hover::before {
+.button:not(.card__icon-button):hover::before {
   transform: translateX(0);
 }
 
@@ -378,7 +385,7 @@
 
 .dialog__button-floppy-save__text {
   min-block-size: 63px;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent), 'Courier New', Courier, 'Lucida Sans Typewriter', monospace;
   font-weight: var(--font-accent-weight);
   font-size: 14px;
   line-height: 1.5;
@@ -398,31 +405,31 @@
 }
 
 /******************************* ФИЛЬТРЫ КАРТИНОК *******************************************/
-li:nth-of-type(2) .card__article-picture {
+.filter-grayscale {
   filter: grayscale(70%);
 }
 
-li:nth-of-type(3) .card__article-picture {
+.filter-sepia {
   filter: sepia(90%);
 }
 
-li:nth-of-type(4) .card__article-picture {
+.filter-saturate {
   filter: saturate(400%);
 }
 
-li:nth-of-type(5) .card__article-picture {
+.filter-invert {
   filter: invert(70%);
 }
 
-li:nth-of-type(6) .card__article-picture {
+.filter-grayscale-sepia-brightness {
   filter: grayscale(0.75) sepia(0.7) brightness(0.9);
 }
 
-li:nth-of-type(7) .card__article-picture {
+.filter-blure {
   filter: blur(15px);
 }
 
-li:nth-of-type(8) .card__article-picture {
+.filter-hue-rotate-saturate-brightness-contrast-blur {
   filter: hue-rotate(90deg) saturate(60%) brightness(1.2) contrast(0.7) blur(1.5px);
 }
 
@@ -439,5 +446,14 @@ li:nth-of-type(8) .card__article-picture {
   }
   li:nth-of-type(5) .card__article-text {
     margin-top: 20px;
+  }
+}
+
+@media (width <= 375px) {
+  .dialog[open] {
+    padding-inline: 40px;
+  }
+  .dialog__button-floppy-save__text {
+    margin-inline-end: -33px;
   }
 }
