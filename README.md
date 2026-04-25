@@ -8,6 +8,9 @@
 ## Адрес на GIT
 ### https://github.com/eeugene152/zakrivayuschiy-teg-f
 
+## Cтраница с проектом доступна -
+### https://eeugene152.github.io/zakrivayuschiy-teg-f/
+
 ![Превью проекта](./images/preview_z-tag.gif)
 
 Мой четвертый проект в рамках обучения веб-разработке - **Финальная работа курса HTML/CSS**.
