@@ -1,6 +1,7 @@
 /* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в
+HTML некоторые классы были названы особым образом:
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -9,3 +10,57 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+@keyframes scale-icon {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.25;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes fill-sparks {
+  0% {
+    fill: transparent;
+  }
+  50% {
+    fill: var(--heart-animation);
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+/************** Анимация при нажатии ИКОНКИ ********************************************/
+
+.card__icon-button .like-icon.is-liked .core {
+  transition-delay: 0s;
+  fill: var(--heart-animation);
+}
+
+.card__icon-button .like-icon.is-liked .main-body {
+  transition-delay: 0.05s;
+  fill: var(--heart-animation);
+}
+
+.card__icon-button .like-icon.is-liked .contour {
+  transition: fill 0.3s linear;
+  transition-delay: 0.06s;
+  fill: var(--heart-animation);
+}
+
+/* увеличиваем иконку */
+.card__icon-button .like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scale-icon 0.3s ease-in;
+  animation-delay: 0.1s;
+}
+
+.card__icon-button .like-icon.is-liked .sparks {
+  animation: fill-sparks 0.3s ease-in;
+  animation-delay: 0.3s;
+}
