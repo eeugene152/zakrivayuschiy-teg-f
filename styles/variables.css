@@ -22,6 +22,7 @@
   --heart-main-body: transparent;
   --heart-animation: #FF0000;
 
+  --floppy-color: #fff;
   --floppy-icon-dimensions: clamp(21px, 30.46px - 0.66vw, 28px);
   --watermark-text-stroke: rgba(255, 255, 255, 0.9);
 
